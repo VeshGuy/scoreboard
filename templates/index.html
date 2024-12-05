@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% block css_link %}
 <link href="{{ url_for('static', filename='css/login.css') }}" rel="stylesheet">
 {% endblock css_link %}
@@ -8,28 +9,25 @@
 {% endblock title %}
 
 {% block body %}
-    <div class="text">
-        <h1>LOGIN</h1>
-    </div>
-    <div class="shadow p-3 mb-5 bg-body rounded">
-        <form method="POST">
-            {{ form.hidden_tag() }} <!-- Corrected Syntax -->
-        <div class="namelogin">
-            {{ form.name.label(class="form-label") }}
-            {{ form.name(class="form-control") }}
+    <div class="login-container">
+        <h1 class="login-title">LOGIN</h1>
+        <div class="form-container shadow p-3 mb-5 bg-body rounded">
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    <label for="name" class="form-label">Username:</label>
+                    {{ form.name(class="form-control") }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="password" class="form-label">Password:</label>
+                    {{ form.password(class="form-control") }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
         </div>
-            
-            <br/>
-        <div class="passlogin">
-            {{ form.password.label(class="form-label") }}
-            {{ form.password(class="form-control") }}
-        </div>
-            
-            <br/>
-        <div class="submitbtn">
-            {{ form.submit(class="btn btn-secondary") }}
-        </div>
-            
-        </form>
     </div>
 {% endblock body %}
