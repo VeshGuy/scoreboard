@@ -1,0 +1,123 @@
+body {
+    background-color: #f4f4f9;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.scoreboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.scoreboard-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: #343a40;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Helvetica', sans-serif;
+}
+
+.table-container {
+    width: 80%;
+    overflow-x: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scoreboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.scoreboard-table th,
+.scoreboard-table td {
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+}
+
+.scoreboard-table th {
+    background-color: #007bff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.scoreboard-table .table-row {
+    transition: background-color 0.3s ease;
+}
+
+.scoreboard-table .table-row:hover {
+    background-color: #f1f1f1;
+}
+
+.rank {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.team-name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.team-score {
+    font-size: 18px;
+    font-weight: bold;
+    color: #28a745;
+}
+
+.back-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.backbtn{
+    cursor: pointer;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #007bff;
+    border-style: none;
+    font-size: large;
+    color: #f1f1f1;
+    font-family: 'Helvetica', sans-serif;
+}
+
+
+a{
+    
+    text-decoration: none;
+}
+
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .scoreboard-table th, .scoreboard-table td {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .scoreboard-title {
+        font-size: 32px;
+    }
+
+    .table-container {
+        width: 95%;
+    }
+}

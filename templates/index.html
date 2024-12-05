@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block css_link %}
+<link href="{{ url_for('static', filename='css/login.css') }}" rel="stylesheet">
+{% endblock css_link %}
+
+{% block title %}
+    Log In
+{% endblock title %}
+
+{% block body %}
+    <div class="text">
+        <h1>LOGIN</h1>
+    </div>
+    <div class="shadow p-3 mb-5 bg-body rounded">
+        <form method="POST">
+            {{ form.hidden_tag() }} <!-- Corrected Syntax -->
+        <div class="namelogin">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-control") }}
+        </div>
+            
+            <br/>
+        <div class="passlogin">
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control") }}
+        </div>
+            
+            <br/>
+        <div class="submitbtn">
+            {{ form.submit(class="btn btn-secondary") }}
+        </div>
+            
+        </form>
+    </div>
+{% endblock body %}

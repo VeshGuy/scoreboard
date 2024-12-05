@@ -1,0 +1,42 @@
+body{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: blueviolet;
+}
+.container{
+    justify-items: center;
+    align-items: center;
+    background-color: aquamarine;
+}
+.form-control{
+    font-weight: 500;
+    border-radius: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.form-label{
+    margin-right: 1px;
+}
+
+.submitbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.namelogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    border-radius: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

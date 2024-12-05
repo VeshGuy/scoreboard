@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Scoreboard
+{% endblock title %}
+
+{% block css_link %}
+    <link href="{{ url_for('static', filename='css/scoreboard.css') }}" rel="stylesheet">
+{% endblock css_link %}
+
+{% block body %}
+    <div class="scoreboard-container">
+        <h1 class="scoreboard-title">Scoreboard</h1>
+
+        <div class="table-container">
+            <table class="scoreboard-table">
+                <thead>
+                    <tr>
+                        <th class="header">Rank</th>
+                        <th class="header">Team Name</th>
+                        <th class="header">Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users|sort(attribute='score', reverse=true) %}
+                        <tr class="table-row">
+                            <td class="rank">{{ loop.index }}</td>
+                            <td class="team-name">{{ user.name }}</td>
+                            <td class="team-score">{{ user.score }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="back-btn">
+        <a href="{{ url_for('teams') }}" ><button class="backbtn">Back</button></a>
+    </div>
+{% endblock body %}

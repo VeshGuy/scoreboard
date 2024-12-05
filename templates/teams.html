@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Teams
+{% endblock title %}
+
+{% block css_link %}
+    <link href="{{ url_for('static', filename='css/teams.css') }}" rel="stylesheet">
+{% endblock css_link %}
+
+{% block body %}
+    <h1>Teams Info</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li class="alert alert-info">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <div class="container">
+        <div class="shadow p-3 mb-5 bg-body rounded">
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    <label for="name" class="form-label">Team Name:</label>
+                    {{ form.name(class="form-control", size=32) }}
+                </div>
+                <div class="form-group">
+                    <label for="score" class="form-label">Team Score:</label>
+                    {{ form.score(class="form-control", size=32) }}
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        {% if form.name.data and form.score.data %}
+                            Update Team
+                        {% else %}
+                            Add Team
+                        {% endif %}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="sbd">
+        <a href="{{ url_for('score_board', users=users) }}">
+            <button class="scorebtn">Scoreboard</button>
+        </a>
+    </div>
+    
+    <div class="table_container">
+        <table class="table table-hover table-bordered mt-4">
+            <thead>
+                <tr class="table-dark">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.score }}</td>
+                        <td class="actions">
+                            <a href="{{ url_for('update_team', team_id=user.id) }}" class="btn btn-warning btn-sm">Update</a>
+                            <a href="{{ url_for('delete_team', team_id=user.id) }}" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock body %}
